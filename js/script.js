@@ -67,7 +67,9 @@ function renderSteps() {
         <div class="step-title">${step.illustration} ${step.title} <span class="badge">${step.level}</span></div>
         <div class="resources"><h6>📚 Arabic Resources:</h6><ul>${resourcesHTML}</ul></div>
         <div class="projects"><h6>🛠 Mini-Projects:</h6><ul>${projectsHTML}</ul></div>
-        <button class="btn btn-success mark-complete mt-3" ${locked ? "disabled" : ""}>Mark as Complete</button>
+${completedSteps.includes(i)
+                ? `<button class="btn btn-secondary completed-btn mt-3" disabled>✓ Completed</button>`
+                : `<button class="btn btn-success mark-complete mt-3" ${locked ? "disabled" : ""}>Mark as Complete</button>`}
       </div>
     `);
     });
@@ -83,6 +85,27 @@ function updateProgress() {
     // }
 }
 updateProgress();
+
+$(document).on("click", ".mark-complete", function () {
+    const index = $(this).closest(".roadmap-card").data("index");
+    if (!completedSteps.includes(index)) {
+        completedSteps.push(index);
+        localStorage.setItem("completedSteps", JSON.stringify(completedSteps));
+        renderSteps();
+        updateProgress();
+        launchConfetti();
+        Swal.fire({
+            title: '🎉 Step Completed!',
+            text: `Great job! You finished: ${steps[index].title}`,
+            icon: 'success',
+            confirmButtonText: 'Continue',
+            background: '#1e1e2f',
+            color: '#fff',
+            confirmButtonColor: '#00f2fe'
+        });
+    }
+});
+
 
 function resizeQuestPath() {
     const path = document.getElementById("quest-line");

@@ -165,19 +165,44 @@ body {
   }
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 .footer {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
   font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+// .footer::before {
+//   content: "";
+//   position: absolute;
+//   width: 150%;
+//   height: 4px;
+//   bottom: 0;
+//   left: -25%;
+//   background: linear-gradient(90deg, #00f2fe, #4facfe, #00f2fe);
+//   background-size: 200% 100%;
+//   animation: footer-glow 5s linear infinite;
+// }
+
+@keyframes footer-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .footer .heart {
   color: #ff4b5c;
-  font-size: 0.9rem;
-  animation: heartbeat 0.3s infinite;
-  -webkit-animation: heartbeat 0.3s infinite;
+  font-size: 1rem;
+  animation: heartbeat 0.6s infinite;
 }
 
 @keyframes heartbeat {
@@ -199,5 +224,39 @@ body {
 
 .footer .linkedin-link:hover {
   color: #4facfe;
-  text-shadow: 0 0 8px #00f2fe;
+  text-shadow: 0 0 10px #00f2fe;
+}
+
+.footer .tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.mark-complete {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+}
+
+.mark-complete:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.7);
+}
+
+.completed-btn {
+  background: #28a745 !important;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(40, 167, 69, 0.4);
+  cursor: default;
 }
