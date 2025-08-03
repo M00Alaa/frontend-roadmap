@@ -84,6 +84,16 @@ function updateProgress() {
 }
 updateProgress();
 
+function resizeQuestPath() {
+    const path = document.getElementById("quest-line");
+    const container = document.getElementById("steps-container");
+    const height = container.scrollHeight + 200;
+    path.setAttribute("d", `M150 0 L150 ${height}`);
+}
+window.addEventListener("resize", resizeQuestPath);
+resizeQuestPath();
+
+
 // Step Completion
 $(document).on("click", ".mark-complete", function () {
     const index = $(this).closest(".roadmap-card").data("index");
