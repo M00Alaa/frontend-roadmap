@@ -1,0 +1,174 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #0e0e10;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#bg-blobs {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 242, 254, 0.2),
+      transparent
+    ),
+    radial-gradient(circle at 80% 60%, rgba(79, 172, 254, 0.2), transparent);
+}
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 100px; // leave space for button
+}
+
+.start-btn {
+  position: absolute;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #fff;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+  animation: pulse 2s infinite;
+  transition: transform 0.3s;
+}
+
+.start-btn:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 242, 254, 1);
+  }
+}
+
+#quest-path {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.roadmap-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  color: white;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .step-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .badge {
+    font-size: 0.9rem;
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+  }
+
+  .resources,
+  .projects {
+    margin-top: 15px;
+    h6 {
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #00f2fe;
+    }
+  }
+
+  &.locked {
+    opacity: 0.4;
+    pointer-events: none;
+    position: relative;
+    &::after {
+      content: "🔒 Locked";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  }
+}
+
+.footer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.footer .heart {
+  color: #ff4b5c;
+  font-size: 0.9rem;
+  animation: heartbeat 0.3s infinite;
+  -webkit-animation: heartbeat 0.3s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+.footer .linkedin-link {
+  color: #00f2fe;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer .linkedin-link:hover {
+  color: #4facfe;
+  text-shadow: 0 0 8px #00f2fe;
+}

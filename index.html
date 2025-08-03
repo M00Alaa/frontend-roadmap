@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Quest Path</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div id="bg-blobs"></div>
+    <canvas id="particles"></canvas>
+
+    <!-- Hero -->
+    <section
+      class="hero text-center d-flex flex-column justify-content-center align-items-center"
+    >
+      <h1 class="display-4 fw-bold mb-3">🚀 Your Frontend Quest Begins</h1>
+      <p class="lead">Complete each step & earn your certificate!</p>
+      <a href="#quest" class="start-btn shadow">Start Journey</a>
+    </section>
+
+    <!-- Progress -->
+    <section class="container text-center my-5">
+      <h3>Your Progress</h3>
+      <div class="progress mx-auto" style="height: 30px; max-width: 500px">
+        <div
+          id="progress-bar"
+          class="progress-bar progress-bar-striped bg-success"
+          style="width: 0%"
+        >
+          0%
+        </div>
+      </div>
+    </section>
+
+    <!-- Quest Path -->
+    <section id="quest" class="container my-5 position-relative">
+      <svg
+        id="quest-path"
+        width="100%"
+        height="1500"
+        class="position-absolute top-0 start-50 translate-middle-x"
+      >
+        <path
+          id="quest-line"
+          d="M150 0 L150 1400"
+          stroke="#00f2fe"
+          stroke-width="4"
+          fill="none"
+          stroke-dasharray="6 12"
+        />
+      </svg>
+      <div
+        id="steps-container"
+        class="d-flex flex-column gap-5 position-relative"
+      ></div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <!-- <div class="modal fade" id="certificateModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4 text-center">
+          <h3 class="mb-3">🎉 Congratulations!</h3>
+          <p>You’ve completed the Frontend Quest.</p>
+          <input
+            type="text"
+            id="certName"
+            class="form-control mb-3"
+            placeholder="Enter your name"
+          />
+          <button id="downloadCert" class="btn btn-success">
+            Download Certificate
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Footer -->
+    <!-- <footer class="footer text-center py-4 mt-5">
+      <p class="mb-1">
+        Made with <span class="bi bi-heart-fill heart"></span> by
+        <a
+          href="https://www.linkedin.com/in/mohamedalaa/"
+          class="linkedin-link"
+          target="_blank"
+          >Mohamed Alaa</a
+        >
+      </p>
+    </footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
